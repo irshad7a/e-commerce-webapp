@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    {% extends 'store/base.html' %}
+    {% block title %}Register - VerdanaFresh{% endblock %}
+    {% block content %}
+    <div class="container" style="max-width: 400px;">
+        <div class="card">
+            <div class="card-body">
+                <h2 style="text-align:center;">Register</h2>
+                {% if messages %}
+                  {% for message in messages %}
+                    <div class="success">{{ message }}</div>
+                  {% endfor %}
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div style="margin-bottom: 1em;">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% comment %} {% if field.help_text %}
+                                <small style="display:block; color:#6c757d; font-size:0.92em; margin-top:2px;">
+                                    {{ field.help_text }}
+                            </small> {% endcomment %}
+                            {% comment %} {% endif %} {% endcomment %}
+                            {% if field.errors %}
+                                <div class="error">{{ field.errors|striptags }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    {% if form.non_field_errors %}
+                        <div class="error">{{ form.non_field_errors }}</div>
+                    {% endif %}
+                    <button type="submit" class="button" style="width:100%;">Register</button>
+                </form>
+                <p style="text-align:center; margin-top: 1em;">
+                    Already have an account?
+                    <a href="{% url 'store:login_user' %}">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'store/base.html' %}
+{% block title %}Cart - VerdanaFresh{% endblock %}
+{% block content %}
+<div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <h1>Your Cart</h1>
+
+    {% if cart_items %}
+        <ul class="cart-list">
+            {% for item in cart_items %}
+                <li>
+                    <span>
+                        {{ item.product.name }}<br>
+                        <small>₹{{ item.product.price }} x {{ item.quantity }}</small>
+                    </span>
+                    <span class="price">₹{{ item.subtotal }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div>
+            <strong>Total:</strong> <span class="price">₹{{ total }}</span>
+        </div>
+
+        {% comment %} <form method="post" action="{% url 'store:checkout' %}"> {% endcomment %}
+            {% comment %} {% csrf_token %} {% endcomment %}
+            {% comment %} <button type="submit" class="button">Proceed to Checkout</button> {% endcomment %}
+        {% comment %} </form> {% endcomment %}
+        {% comment %} <a href="{% url 'store:home' %}" class="button" style="background:#eee; color:#222;">Continue Shopping</a> {% endcomment %}
+        <div class="cart-actions">
+    <form method="post" action="{% url 'store:checkout' %}">
+        {% csrf_token %}
+        <button type="submit" class="button">Proceed to Checkout</button>
+    </form>
+    <a href="{% url 'store:home' %}" class="button continue-shopping">Continue Shopping</a>
+</div>
+
+    {% else %}
+        <div class="error">Your cart is empty.</div>
+        <a href="{% url 'store:home' %}" class="button">Start Shopping</a>
+    {% endif %}
+</div>
+{% endblock %}

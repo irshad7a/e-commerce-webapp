@@ -1,0 +1,40 @@
+{% extends 'store/base.html' %}
+{% block title %}Home - VerdanaFresh{% endblock %}
+{% block content %}
+<div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h1>All Products</h1>
+        <span class="badge">Products: {{ products|length }}</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+    {% for product in products %}
+        <div style="flex: 1 1 30%; min-width: 250px;">
+            <div class="card">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5>{{ product.name }}</h5>
+                    <p>{{ product.description|truncatewords:20 }}</p>
+                    <p class="price">₹{{ product.price }}</p>
+                    <a href="{% url 'store:product_detail' product.id %}" class="button">View Details</a>
+                    <form method="post" action="{% url 'store:add_to_cart' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="button">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No products available.</p>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
