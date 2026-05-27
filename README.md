@@ -32,7 +32,6 @@ A fresh and clean e-commerce platform for ordering organic vegetables, fruits, a
 **Frontend**
 - HTML
 - CSS
-- JavaScript
 
 **Backend**
 - Python
