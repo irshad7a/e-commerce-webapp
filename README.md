@@ -43,6 +43,43 @@ A fresh and clean e-commerce platform for ordering organic vegetables, fruits, a
 
 ![Screenshot](IMG_20260527_150706.jpg)
 
+![Screenshot 1](IMG_20260527_150151.jpg)
+
+
+
+
+![Screenshot 2](IMG_20260527_150251.jpg)
+
+
+
+
+![Screenshot 3](IMG_20260527_150413.jpg)
+
+
+
+
+![Screenshot 4](IMG_20260527_150445.jpg)
+
+
+
+
+![Screenshot 5](IMG_20260527_150525.jpg)
+
+
+
+
+![Screenshot 6](IMG_20260527_150612.jpg)
+
+
+
+
+![Screenshot 7](IMG_20260527_150706.jpg)
+
+
+
+
+![Screenshot 8](IMG-20260527-WA0012.jpg)
+
 ---
 
 ## How to Run Locally
