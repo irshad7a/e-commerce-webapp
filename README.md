@@ -41,7 +41,7 @@ A fresh and clean e-commerce platform for ordering organic vegetables, fruits, a
 
 ## 📸 Screenshots
 
-*(Add screenshots here)*
+![Screenshot](IMG_20260527_150706.jpg)
 
 ---
 
